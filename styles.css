@@ -1,0 +1,54 @@
+html {
+  font-family: "VT323", monospace;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 2em;
+  justify-self: centers;
+}
+.start-screen {
+  background-image: url(images/snake-background-z1pwx91w43h1nabw.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  width: 70vw;
+  padding-top: 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-screen nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.levels {
+  margin-top: 30%;
+}
+
+.easyorhard {
+  display: flex;
+  justify-content: space-between;
+}
