@@ -2,13 +2,20 @@ html {
   font-family: "VT323", monospace;
 }
 
-.hidden {
-  display: none;
-}
-
 h1 {
   font-size: 2em;
   justify-self: centers;
+}
+
+#game-screen {
+  background-color: lightgoldenrodyellow;
+  background-position: center;
+  width: 100%;
+  display: none;
+}
+
+#game-end {
+  display: none;
 }
 #start-screen {
   background-image: url(images/snake-background-z1pwx91w43h1nabw.jpg);
@@ -58,6 +65,7 @@ h1 {
 button {
   font-family: "VT323", monospace;
   padding: 8px;
+  border-radius: 5px;
 }
 
 button:hover {
@@ -65,10 +73,7 @@ button:hover {
 }
 
 #game-area {
-  background-image: url(images/game-bg.webp);
+  background-color: lightgoldenrodyellow;
   background-position: center;
-  background-repeat: repeat;
-  background-size: cover;
-  height: 60vh;
-  width: 70vw;
+  width: 100%;
 }
