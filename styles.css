@@ -10,7 +10,7 @@ h1 {
   font-size: 2em;
   justify-self: centers;
 }
-.start-screen {
+#start-screen {
   background-image: url(images/snake-background-z1pwx91w43h1nabw.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@ h1 {
   align-items: center;
 }
 
-.start-screen nav {
+#start-screen nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -62,4 +62,13 @@ button {
 
 button:hover {
   transform: scale(1.5);
+}
+
+#game-area {
+  background-image: url(images/game-bg.webp);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  height: 60vh;
+  width: 70vw;
 }
