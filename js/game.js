@@ -11,6 +11,7 @@ class Game {
 
     this.currentFrame = 0;
     this.lives = 5;
+    this.score = 0;
     this.gameOver = false;
   }
 
@@ -34,10 +35,13 @@ class Game {
       this.player.move();
       this.foods.forEach((currentFood) => {
         if (this.player.didCollide(currentFood)) {
+          this.score++;
+          console.log(this.score);
           //increase score
           //increae body length
           //make food dissapear (removed from array & dom)
           currentFood.element.remove();
+          const newBodyElement = this.player.snakeBody.push(newBodyElement);
         }
       });
     }, 1000 / 60);
