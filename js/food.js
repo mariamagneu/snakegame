@@ -10,17 +10,17 @@ class Food {
     this.top = Math.random() * (gameScreenHeight - this.height);
     this.left = Math.random() * (gameScreenWidth - this.width);
 
-    this.food = document.createElement("div");
+    this.element = document.createElement("div");
 
-    this.food.style.backgroundColor = "#FF0000";
-    this.food.style.borderRadius = "50%";
-    this.food.style.boxShadow = "0px 0px 20px 0px rgba(255, 0, 0, 0.75)";
-    this.food.style.position = "absolute";
-    this.food.style.width = `${this.width}px`;
-    this.food.style.height = `${this.height}px`;
-    this.food.style.top = `${this.top}px`;
-    this.food.style.left = `${this.left}px`;
+    this.element.style.backgroundColor = "#FF0000";
+    this.element.style.borderRadius = "50%";
+    this.element.style.boxShadow = "0px 0px 20px 0px rgba(255, 0, 0, 0.75)";
+    this.element.style.position = "absolute";
+    this.element.style.width = `${this.width}px`;
+    this.element.style.height = `${this.height}px`;
+    this.element.style.top = `${this.top}px`;
+    this.element.style.left = `${this.left}px`;
 
-    this.gameScreen.appendChild(this.food);
+    this.gameScreen.appendChild(this.element);
   }
 }

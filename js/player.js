@@ -6,29 +6,45 @@ class Player {
     this.width = width;
     this.height = height;
     this.directionX = 0;
-    this.directionY = 0;
-    this.speed = 3;
+    this.directionY = 1;
+    this.speed = 1;
+    this.snakeHead = document.createElement("div");
+    this.snakeBody = [];
 
-    //CHANGING THINGS NOW
+    this.snakeHead.style.position = "relative";
+    this.snakeHead.style.backgroundColor = backgroundColor;
+    this.snakeHead.style.borderRadius = "5px";
+    this.snakeHead.style.left = `${left}px`;
+    this.snakeHead.style.top = `${top}px`;
+    this.snakeHead.style.width = `${width}px`;
+    this.snakeHead.style.height = `${height}px`;
 
-    this.element = document.createElement("div");
-
-    this.element.style.position = "relative";
-    this.element.style.backgroundColor = backgroundColor;
-    this.element.style.borderRadius = "5px";
-    this.element.style.left = `${left}px`;
-    this.element.style.top = `${top}px`;
-    this.element.style.width = `${width}px`;
-    this.element.style.height = `${height}px`;
-
-    this.gameScreen.appendChild(this.element);
+    this.gameScreen.appendChild(this.snakeHead);
   }
 
   move() {
     this.left += this.directionX * this.speed;
     this.top += this.directionY * this.speed;
 
-    this.element.style.top = `${this.top}px`;
-    this.element.style.left = `${this.left}px`;
+    this.snakeHead.style.top = `${this.top}px`;
+    this.snakeHead.style.left = `${this.left}px`;
+  }
+
+  didCollide(food) {
+    const playerRect = this.snakeHead.getBoundingClientRect();
+    const foodRect = food.element.getBoundingClientRect();
+
+    if (
+      playerRect.left < foodRect.right &&
+      playerRect.right > foodRect.left &&
+      playerRect.top < foodRect.bottom &&
+      playerRect.bottom > foodRect.top
+    ) {
+      console.log("yummy");
+
+      return true;
+    } else {
+      return false;
+    }
   }
 }
