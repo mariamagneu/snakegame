@@ -40,7 +40,7 @@ class Game {
     const intervalId = setInterval(() => {
       this.currentFrame += 1;
       this.player.move();
-      this.foods.forEach((currentFood) => {
+      this.foods.forEach((currentFood, index) => {
         if (this.player.didCollide(currentFood)) {
           this.score++;
           console.log(this.score);
@@ -58,7 +58,9 @@ class Game {
           this.player.snakeBody.push(newBodyPart);
 
           //make food dissapear (removed from array & dom)
-          currentFood.element.remove();
+          currentFood.destroy();
+          this.foods.splice(index, 1);
+          console.log("are u there???");
           const newBodyElement = this.player.snakeBody.push(newBodyElement);
         }
       });

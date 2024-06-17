@@ -17,4 +17,8 @@ class Food {
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
   }
+
+  destroy() {
+    this.element.remove();
+  }
 }
