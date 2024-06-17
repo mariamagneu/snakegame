@@ -17,7 +17,13 @@ class Game {
   }
 
   addFood() {
-    const foodItem = new Food(this.gameScreen);
+    const size = 20;
+    const top = Math.random() * (this.gameScreen.clientHeight - size);
+    const left = Math.random() * (this.gameScreen.clientWidth - size);
+    const foodItem = new Food(size, top, left);
+
+    this.gameScreen.appendChild(foodItem.element);
+
     this.foods.push(foodItem);
   }
 

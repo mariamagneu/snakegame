@@ -1,14 +1,10 @@
 class Food {
-  constructor(gameScreen) {
-    this.gameScreen = gameScreen;
-    this.width = 20;
-    this.height = 20;
+  constructor(size, top, left) {
+    this.width = size;
+    this.height = size;
 
-    const gameScreenWidth = this.gameScreen.clientWidth;
-    const gameScreenHeight = this.gameScreen.clientHeight;
-
-    this.top = Math.random() * (gameScreenHeight - this.height);
-    this.left = Math.random() * (gameScreenWidth - this.width);
+    this.top = top;
+    this.left = left;
 
     this.element = document.createElement("div");
 
@@ -20,7 +16,5 @@ class Food {
     this.element.style.height = `${this.height}px`;
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
-
-    this.gameScreen.appendChild(this.element);
   }
 }
