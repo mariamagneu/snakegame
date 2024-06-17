@@ -12,6 +12,9 @@ h1 {
   background-position: center;
   width: 100%;
   display: none;
+  border-radius: 10px;
+  border: solid brown 2px;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 #game-end {
@@ -22,13 +25,14 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60vh;
-  width: 70vw;
+  height: 600px;
+  width: 700px;
   padding-top: 8px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 #start-screen nav {
@@ -40,7 +44,6 @@ h1 {
   margin-left: 8px;
   position: relative;
 }
-
 .container {
   display: flex;
   align-items: center;
@@ -72,8 +75,7 @@ button:hover {
   transform: scale(1.5);
 }
 
-#game-area {
-  background-color: lightgoldenrodyellow;
-  background-position: center;
-  width: 100%;
+.player {
+  background-color: red;
+  border: black 1px solid;
 }
