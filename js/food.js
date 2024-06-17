@@ -13,6 +13,8 @@ class Food {
     this.food = document.createElement("div");
 
     this.food.style.backgroundColor = "#FF0000";
+    this.food.style.borderRadius = "50%";
+    this.food.style.boxShadow = "0px 0px 20px 0px rgba(255, 0, 0, 0.75)";
     this.food.style.position = "absolute";
     this.food.style.width = `${this.width}px`;
     this.food.style.height = `${this.height}px`;
