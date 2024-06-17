@@ -33,10 +33,12 @@ class Game {
       this.currentFrame += 1;
       this.player.move();
       this.foods.forEach((currentFood) => {
-        this.player.didCollide(currentFood);
-        //increase score
-        //increae body length
-        //make food dissapear (removed from array & dom)
+        if (this.player.didCollide(currentFood)) {
+          //increase score
+          //increae body length
+          //make food dissapear (removed from array & dom)
+          currentFood.element.remove();
+        }
       });
     }, 1000 / 60);
   }
