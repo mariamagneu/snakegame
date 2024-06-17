@@ -15,6 +15,7 @@ h1 {
   border-radius: 10px;
   border: solid brown 2px;
   box-shadow: 0 0 20px rgb(0, 0, 0);
+  position: relative;
 }
 
 #game-end {

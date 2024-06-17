@@ -12,7 +12,7 @@ class Player {
     this.element = document.createElement("img");
     this.element.src = image;
 
-    this.element.style.position = "relative";
+    this.element.style.position = "absolute";
     this.element.style.left = `${left}px`;
     this.element.style.top = `${top}px`;
     this.element.style.width = `${width}px`;

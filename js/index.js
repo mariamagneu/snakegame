@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   startBtn.addEventListener("click", () => {
     startGame();
   });
-
   document.addEventListener("keydown", (event) => {
     if (event.code === "KeyA" || event.code === "ArrowLeft") {
       game.player.directionX = -1;
