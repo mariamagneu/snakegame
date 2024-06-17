@@ -6,14 +6,7 @@ class Game {
     this.width = 700;
     this.height = 600;
 
-    this.player = new Player(
-      this.gameScreen,
-      150,
-      150,
-      10,
-      10,
-      "images/player.png"
-    );
+    this.player = new Player(this.gameScreen, 150, 150, 20, 20, "#89f336");
     this.food = [];
 
     this.currentFrame = 0;

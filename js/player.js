@@ -1,5 +1,5 @@
 class Player {
-  constructor(gameScreen, left, top, width, height, image) {
+  constructor(gameScreen, left, top, width, height, backgroundColor) {
     this.gameScreen = gameScreen;
     this.left = left;
     this.top = top;
@@ -9,10 +9,13 @@ class Player {
     this.directionY = 0;
     this.speed = 3;
 
-    this.element = document.createElement("img");
-    this.element.src = image;
+    //CHANGING THINGS NOW
 
-    this.element.style.position = "absolute";
+    this.element = document.createElement("div");
+
+    this.element.style.position = "relative";
+    this.element.style.backgroundColor = backgroundColor;
+    this.element.style.borderRadius = "5px";
     this.element.style.left = `${left}px`;
     this.element.style.top = `${top}px`;
     this.element.style.width = `${width}px`;
