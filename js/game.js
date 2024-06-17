@@ -1,10 +1,11 @@
 class Game {
-  constructor() {
-    this.startScreen = document.querySelector("#start-screen");
-    this.gameScreen = document.querySelector("#game-screen");
-    this.endScreen = document.querySelector("#game-end");
-    this.width = 700;
-    this.height = 600;
+  constructor(screens, viewPort) {
+    this.startScreen = screens.start;
+    this.gameScreen = screens.game;
+    this.endScreen = screens.end;
+
+    this.width = viewPort.width;
+    this.height = viewPort.height;
 
     this.player = new Player(this.gameScreen, 150, 150, 20, 20, "#89f336");
     this.foods = [];
@@ -39,6 +40,17 @@ class Game {
           console.log(this.score);
           //increase score
           //increae body length
+
+          const newBodyPart = document.createElement("div");
+          newBodyPart.style.position = "relative";
+          newBodyPart.style.backgroundColor = backgroundColor;
+          newBodyPart.style.borderRadius = "5px";
+          newBodyPart.style.left = `${left}px`;
+          newBodyPart.style.top = `${top}px`;
+          newBodyPart.style.width = `${width}px`;
+          newBodyPart.style.height = `${height}px`;
+          this.player.snakeBody.push(newBodyPart);
+
           //make food dissapear (removed from array & dom)
           currentFood.element.remove();
           const newBodyElement = this.player.snakeBody.push(newBodyElement);

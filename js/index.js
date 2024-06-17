@@ -4,7 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let game;
   function startGame() {
     console.log("game has officially started");
-    game = new Game();
+
+    const screens = {
+      start: document.querySelector("#start-screen"),
+      game: document.querySelector("#game-screen"),
+      end: document.querySelector("#game-end"),
+    };
+
+    const viewPort = {
+      height: 600,
+      width: 700,
+    };
+    game = new Game(screens, viewPort);
+
     game.start();
   }
 
