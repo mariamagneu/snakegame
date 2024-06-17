@@ -3,11 +3,18 @@ class Game {
     this.startScreen = document.querySelector("#start-screen");
     this.gameScreen = document.querySelector("#game-screen");
     this.endScreen = document.querySelector("#game-end");
-    this.width = 70;
-    this.height = 60;
+    this.width = 700;
+    this.height = 600;
 
-    this.player;
-    this.obstacles = [];
+    this.player = new Player(
+      this.gameScreen,
+      150,
+      150,
+      10,
+      10,
+      "images/player.png"
+    );
+    this.food = [];
 
     this.currentFrame = 0;
     this.lives = 5;
@@ -15,11 +22,18 @@ class Game {
   }
 
   start() {
-    this.gameScreen.style.width = `${this.width}vw`;
-    this.gameScreen.style.height = `${this.height}vh`;
+    this.gameScreen.style.width = `${this.width}px`;
+    this.gameScreen.style.height = `${this.height}px`;
+
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
     this.endScreen.style.display = "none";
+
+    const intervalId = setInterval(() => {
+      this.currentFrame += 1;
+
+      this.player.move();
+    }, 1000 / 60);
   }
 }
 
