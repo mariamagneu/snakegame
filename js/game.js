@@ -14,6 +14,11 @@ class Game {
     this.gameOver = false;
   }
 
+  addFood() {
+    const foodItem = new Food(this.gameScreen);
+    this.food.push(foodItem);
+  }
+
   start() {
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
@@ -21,6 +26,8 @@ class Game {
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
     this.endScreen.style.display = "none";
+
+    this.addFood();
 
     const intervalId = setInterval(() => {
       this.currentFrame += 1;
