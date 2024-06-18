@@ -23,8 +23,8 @@ class Player {
   }
 
   move() {
-    this.left += this.directionX * this.speed;
-    this.top += this.directionY * this.speed;
+    this.left += this.width * this.directionX;
+    this.top += this.directionY * this.height;
 
     this.snakeHead.style.top = `${this.top}px`;
     this.snakeHead.style.left = `${this.left}px`;
@@ -50,6 +50,6 @@ class Player {
   increaseBodyLength() {
     const newBodyPart = document.createElement("div");
     this.snakeBody.push(newBodyPart);
-    console.log(`the snakes bodypart count is at ${this.snakeBody.length}`);
+    console.log(`the snakes bodypart count is at ${this.snake}`);
   }
 }

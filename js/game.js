@@ -55,6 +55,6 @@ class Game {
           this.addFood();
         }
       });
-    }, 1000 / 60);
+    }, 200);
   }
 }
