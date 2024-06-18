@@ -47,4 +47,9 @@ class Player {
       return false;
     }
   }
+  increaseBodyLength() {
+    const newBodyPart = document.createElement("div");
+    this.snakeBody.push(newBodyPart);
+    console.log(`the snakes bodypart count is at ${this.snakeBody.length}`);
+  }
 }

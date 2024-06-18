@@ -42,26 +42,17 @@ class Game {
       this.player.move();
       this.foods.forEach((currentFood, index) => {
         if (this.player.didCollide(currentFood)) {
+          //increase score
+
           this.score++;
           console.log(this.score);
-          //increase score
-          //increae body length
 
-          const newBodyPart = document.createElement("div");
-          newBodyPart.style.position = "relative";
-          newBodyPart.style.backgroundColor = backgroundColor;
-          newBodyPart.style.borderRadius = "5px";
-          newBodyPart.style.left = `${left}px`;
-          newBodyPart.style.top = `${top}px`;
-          newBodyPart.style.width = `${width}px`;
-          newBodyPart.style.height = `${height}px`;
-          this.player.snakeBody.push(newBodyPart);
-
-          //make food dissapear (removed from array & dom)
+          //make food dissapear (remove from array & dom)
           currentFood.destroy();
           this.foods.splice(index, 1);
-          console.log("are u there???");
-          const newBodyElement = this.player.snakeBody.push(newBodyElement);
+          this.player.increaseBodyLength();
+
+          this.addFood();
         }
       });
     }, 1000 / 60);
