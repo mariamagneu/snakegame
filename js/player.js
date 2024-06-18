@@ -51,7 +51,7 @@ class Player {
     const newBodyPart = document.createElement("div");
     this.snakeBody.unshift(newBodyPart);
 
-    newBodyPart.style.position = "relative";
+    newBodyPart.style.position = "absolute";
     newBodyPart.style.backgroundColor = this.snakeHead.style.backgroundColor;
     newBodyPart.style.borderRadius = "5px";
 
