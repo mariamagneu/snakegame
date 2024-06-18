@@ -47,9 +47,22 @@ class Player {
       return false;
     }
   }
-  increaseBodyLength() {
+  increaseBodyLength(top, left) {
     const newBodyPart = document.createElement("div");
-    this.snakeBody.push(newBodyPart);
-    console.log(`the snakes bodypart count is at ${this.snake}`);
+    this.snakeBody.unshift(newBodyPart);
+
+    newBodyPart.style.position = "relative";
+    newBodyPart.style.backgroundColor = this.snakeHead.style.backgroundColor;
+    newBodyPart.style.borderRadius = "5px";
+
+    newBodyPart.style.left = `${left}px`;
+    newBodyPart.style.top = `${top}px`;
+
+    newBodyPart.style.width = `${this.width}px`;
+    newBodyPart.style.height = `${this.height}px`;
+
+    this.gameScreen.appendChild(newBodyPart);
+
+    console.log(`the snakes bodypart count is at ${this.snakeBody.length}`);
   }
 }
