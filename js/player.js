@@ -6,7 +6,7 @@ class Player {
     this.width = width;
     this.height = height;
     this.directionX = 0;
-    this.directionY = 1;
+    this.directionY = 0;
     this.speed = 1;
     this.snakeHead = document.createElement("div");
     this.snakeBody = [];

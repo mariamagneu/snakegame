@@ -6,8 +6,19 @@ class Game {
 
     this.width = viewPort.width;
     this.height = viewPort.height;
+    this.size = 20;
 
-    this.player = new Player(this.gameScreen, 150, 150, 20, 20, "#89f336");
+    this.playerLeft = Math.floor(0.5 * (this.width / this.size)) * this.size;
+    this.playerTop = Math.floor(0.5 * (this.height / this.size)) * this.size;
+
+    this.player = new Player(
+      this.gameScreen,
+      this.playerLeft,
+      this.playerTop,
+      this.size,
+      this.size,
+      "#89f336"
+    );
     this.foods = [];
 
     this.currentFrame = 0;
@@ -17,10 +28,12 @@ class Game {
   }
 
   addFood() {
-    const size = 20;
-    const top = Math.random() * (this.gameScreen.clientHeight - size);
-    const left = Math.random() * (this.gameScreen.clientWidth - size);
-    const foodItem = new Food(size, top, left);
+    const left =
+      Math.floor(Math.random() * (this.width / this.size)) * this.size;
+    const top =
+      Math.floor(Math.random() * (this.height / this.size)) * this.size;
+
+    const foodItem = new Food(this.size, top, left);
 
     this.gameScreen.appendChild(foodItem.element);
 
