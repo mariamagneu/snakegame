@@ -21,8 +21,20 @@ class Player {
 
     this.gameScreen.appendChild(this.snakeHead);
   }
+  //CHANGESSSSS
 
   move() {
+    // Update the position of each body part to follow the head
+    for (let i = this.snakeBody.length - 1; i > 0; i--) {
+      this.snakeBody[i].style.left = this.snakeBody[i - 1].style.left;
+      this.snakeBody[i].style.top = this.snakeBody[i - 1].style.top;
+    }
+    if (this.snakeBody.length > 0) {
+      this.snakeBody[0].style.left = this.snakeHead.style.left;
+      this.snakeBody[0].style.top = this.snakeHead.style.top;
+    }
+
+    // Move the head
     this.left += this.width * this.directionX;
     this.top += this.directionY * this.height;
 

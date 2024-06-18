@@ -69,6 +69,7 @@ class Game {
           console.log(
             "prev head top " +
               previousHeadTop +
+              ", " +
               "prev head left " +
               previousHeadLeft
           );
