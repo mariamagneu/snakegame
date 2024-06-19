@@ -103,4 +103,9 @@ class Player {
 
     console.log(`the snakes bodypart count is at ${this.snakeBody.length}`);
   }
+
+  destroy() {
+    this.snakeHead.remove();
+    this.snakeBody.forEach((currentBodyElement) => currentBodyElement.remove());
+  }
 }

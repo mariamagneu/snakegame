@@ -67,13 +67,12 @@ class Game {
       const previousHeadLeft = this.player.left;
 
       this.player.move();
-
+      if (this.player.didCollideWall(this.gameScreen)) {
+        console.log("game-over");
+        this.gameOver = true;
+        clearInterval(intervalId);
+      }
       this.foods.forEach((currentFood, index) => {
-        if (this.player.didCollideWall(this.gameScreen)) {
-          console.log("game-over");
-          this.gameOver = true;
-          clearInterval(intervalId);
-        }
         if (this.player.didCollideFood(currentFood)) {
           //increase score
 
@@ -93,7 +92,11 @@ class Game {
       });
       if (this.gameOver) {
         this.gameOverFunction();
-        console.log("are u copying??/");
+        this.player.destroy();
+        this.foods.forEach((currentFood, index) => {
+          currentFood.destroy();
+          this.foods.splice(index, 1);
+        });
       }
     }, 200);
   }

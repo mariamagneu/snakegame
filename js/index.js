@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.querySelector("#start");
+  const restartBtn = document.querySelector("#restart-button");
 
-  let game;
+  let newGameInstance;
   function startGame() {
     console.log("game has officially started");
 
@@ -15,30 +16,34 @@ document.addEventListener("DOMContentLoaded", () => {
       height: 600,
       width: 700,
     };
-    game = new Game(screens, gameArea);
+    newGameInstance = new Game(screens, gameArea);
 
-    game.start();
+    newGameInstance.start();
   }
 
   startBtn.addEventListener("click", () => {
     startGame();
   });
+
+  restartBtn.addEventListener("click", () => {
+    startGame();
+  });
   document.addEventListener("keydown", (event) => {
     if (event.code === "KeyA" || event.code === "ArrowLeft") {
-      game.player.directionX = -1;
-      game.player.directionY = 0; // Ensure only horizontal movement
+      newGameInstance.player.directionX = -1;
+      newGameInstance.player.directionY = 0; // Ensure only horizontal movement
     }
     if (event.code === "KeyD" || event.code === "ArrowRight") {
-      game.player.directionX = 1;
-      game.player.directionY = 0; // Ensure only horizontal movement
+      newGameInstance.player.directionX = 1;
+      newGameInstance.player.directionY = 0; // Ensure only horizontal movement
     }
     if (event.code === "KeyW" || event.code === "ArrowUp") {
-      game.player.directionY = -1;
-      game.player.directionX = 0; // Ensure only vertical movement
+      newGameInstance.player.directionY = -1;
+      newGameInstance.player.directionX = 0; // Ensure only vertical movement
     }
     if (event.code === "KeyS" || event.code === "ArrowDown") {
-      game.player.directionY = 1;
-      game.player.directionX = 0; // Ensure only vertical movement
+      newGameInstance.player.directionY = 1;
+      newGameInstance.player.directionX = 0; // Ensure only vertical movement
     }
   });
 });
