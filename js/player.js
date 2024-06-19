@@ -52,6 +52,8 @@ class Player {
       playerRect.bottom > foodRect.top
     ) {
       console.log("yummy");
+      console.log("snakehead when it touched food", playerRect);
+      console.log("food position", foodRect);
 
       return true;
     } else {
@@ -61,20 +63,23 @@ class Player {
 
   didCollideWall(gameScreen) {
     const playerRect = this.snakeHead.getBoundingClientRect();
-    const gameScreenRect = this.gameScreen.getBoundingClientRect();
 
-    if (
-      playerRect.left < gameScreenRect.right &&
-      playerRect.right > gameScreenRect.left &&
-      playerRect.top < gameScreenRect.bottom &&
-      playerRect.bottom > gameScreenRect.top
-    ) {
-      console.log("touchedWall");
+    if (playerRect.left < 0) {
+      console.log("touchedWall left side");
       return true;
-    } else {
-      return false;
+    } else if (playerRect.top < 0) {
+      console.log("touched TOP side wall");
+      return true;
+    } else if (playerRect.bottom > 600) {
+      console.log("touched bottom wall"); //pretty sure this is not wokring
+      return true;
+    } else if (playerRect.right > 700) {
+      console.log("touched RIGHT wall ok"); //this too
+      return true;
     }
+    return false;
   }
+
   increaseBodyLength(top, left) {
     const newBodyPart = document.createElement("div");
     this.snakeBody.unshift(newBodyPart);

@@ -59,7 +59,11 @@ class Game {
       const previousHeadLeft = this.player.left;
 
       this.player.move();
+
       this.foods.forEach((currentFood, index) => {
+        if (this.player.didCollideWall(this.gameScreen)) {
+          console.log("game-over");
+        }
         if (this.player.didCollideFood(currentFood)) {
           //increase score
 
@@ -86,9 +90,5 @@ class Game {
         }
       });
     }, 200);
-
-    const gameScreenRect = this.gameScreen.getBoundingClientRect();
-
-    console.log(gameScreenRect);
   }
 }

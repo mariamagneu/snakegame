@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       height: 600,
       width: 700,
     };
-    game = new Game(screens, gameAre);
+    game = new Game(screens, gameArea);
 
     game.start();
   }
