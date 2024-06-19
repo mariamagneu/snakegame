@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
       end: document.querySelector("#game-end"),
     };
 
-    const viewPort = {
+    const gameArea = {
       height: 600,
       width: 700,
     };
-    game = new Game(screens, viewPort);
+    game = new Game(screens, gameAre);
 
     game.start();
   }

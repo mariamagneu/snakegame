@@ -6,7 +6,7 @@ class Player {
     this.width = width;
     this.height = height;
     this.directionX = 0;
-    this.directionY = 0;
+    this.directionY = 1;
     this.speed = 1;
     this.snakeHead = document.createElement("div");
     this.snakeBody = [];
@@ -21,7 +21,6 @@ class Player {
 
     this.gameScreen.appendChild(this.snakeHead);
   }
-  //CHANGESSSSS
 
   move() {
     // Update the position of each body part to follow the head
@@ -42,7 +41,7 @@ class Player {
     this.snakeHead.style.left = `${this.left}px`;
   }
 
-  didCollide(food) {
+  didCollideFood(food) {
     const playerRect = this.snakeHead.getBoundingClientRect();
     const foodRect = food.element.getBoundingClientRect();
 
@@ -54,6 +53,23 @@ class Player {
     ) {
       console.log("yummy");
 
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  didCollideWall(gameScreen) {
+    const playerRect = this.snakeHead.getBoundingClientRect();
+    const gameScreenRect = this.gameScreen.getBoundingClientRect();
+
+    if (
+      playerRect.left < gameScreenRect.right &&
+      playerRect.right > gameScreenRect.left &&
+      playerRect.top < gameScreenRect.bottom &&
+      playerRect.bottom > gameScreenRect.top
+    ) {
+      console.log("touchedWall");
       return true;
     } else {
       return false;

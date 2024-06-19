@@ -1,27 +1,24 @@
 class Game {
-  constructor(screens, viewPort) {
+  constructor(screens, gameArea) {
     this.startScreen = screens.start;
     this.gameScreen = screens.game;
     this.endScreen = screens.end;
 
-    this.width = viewPort.width;
-    this.height = viewPort.height;
+    this.width = gameArea.width;
+    this.height = gameArea.height;
     this.size = 20;
 
     this.playerLeft = Math.floor(0.5 * (this.width / this.size)) * this.size;
     this.playerTop = Math.floor(0.5 * (this.height / this.size)) * this.size;
 
-    this.bodyStartX = //1 square before snakehead, depending on it's direction
-      this.bodyStartY = // 1 square below snakehead, depending where its coming from
-      this.player =
-        new Player(
-          this.gameScreen,
-          this.playerLeft,
-          this.playerTop,
-          this.size,
-          this.size,
-          "#89f336"
-        );
+    this.player = new Player(
+      this.gameScreen,
+      this.playerLeft,
+      this.playerTop,
+      this.size,
+      this.size,
+      "#89f336"
+    );
     this.foods = [];
 
     this.currentFrame = 0;
@@ -63,7 +60,7 @@ class Game {
 
       this.player.move();
       this.foods.forEach((currentFood, index) => {
-        if (this.player.didCollide(currentFood)) {
+        if (this.player.didCollideFood(currentFood)) {
           //increase score
 
           console.log(
@@ -89,5 +86,9 @@ class Game {
         }
       });
     }, 200);
+
+    const gameScreenRect = this.gameScreen.getBoundingClientRect();
+
+    console.log(gameScreenRect);
   }
 }
