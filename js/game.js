@@ -76,7 +76,10 @@ class Game {
         if (this.player.didCollideFood(currentFood)) {
           //increase score
 
-          this.score++;
+          const score = document.querySelector("#score");
+          this.score = this.score + 20;
+          score.innerHTML = `Your Score = ${this.score}`;
+
           console.log(this.score);
 
           //make food dissapear (remove from array & dom)
@@ -96,6 +99,8 @@ class Game {
         this.foods.forEach((currentFood, index) => {
           currentFood.destroy();
           this.foods.splice(index, 1);
+          const score = document.querySelector("#score");
+          score.innerHTML = `Your Score = 0`;
         });
       }
     }, 200);
