@@ -42,15 +42,13 @@ class Game {
     this.foods.push(foodItem);
   }
 
-  gameOver() {
+  gameOverFunction() {
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
 
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "none";
     this.endScreen.style.display = "block";
-
-    clearInterval(intervalId);
   }
   start() {
     this.gameScreen.style.width = `${this.width}px`;
@@ -73,18 +71,11 @@ class Game {
       this.foods.forEach((currentFood, index) => {
         if (this.player.didCollideWall(this.gameScreen)) {
           console.log("game-over");
-          this.gameOver();
+          this.gameOver = true;
+          clearInterval(intervalId);
         }
         if (this.player.didCollideFood(currentFood)) {
           //increase score
-
-          console.log(
-            "prev head top " +
-              previousHeadTop +
-              ", " +
-              "prev head left " +
-              previousHeadLeft
-          );
 
           this.score++;
           console.log(this.score);
@@ -100,6 +91,10 @@ class Game {
           this.addFood();
         }
       });
+      if (this.gameOver) {
+        this.gameOverFunction();
+        console.log("are u copying??/");
+      }
     }, 200);
   }
 }
