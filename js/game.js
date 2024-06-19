@@ -42,6 +42,16 @@ class Game {
     this.foods.push(foodItem);
   }
 
+  gameOver() {
+    this.gameScreen.style.width = `${this.width}px`;
+    this.gameScreen.style.height = `${this.height}px`;
+
+    this.startScreen.style.display = "none";
+    this.gameScreen.style.display = "none";
+    this.endScreen.style.display = "block";
+
+    clearInterval(intervalId);
+  }
   start() {
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
@@ -63,6 +73,7 @@ class Game {
       this.foods.forEach((currentFood, index) => {
         if (this.player.didCollideWall(this.gameScreen)) {
           console.log("game-over");
+          this.gameOver();
         }
         if (this.player.didCollideFood(currentFood)) {
           //increase score

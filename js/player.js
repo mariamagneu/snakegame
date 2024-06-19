@@ -62,19 +62,24 @@ class Player {
   }
 
   didCollideWall(gameScreen) {
-    const playerRect = this.snakeHead.getBoundingClientRect();
-
-    if (playerRect.left < 0) {
+    if (this.snakeHead.offsetLeft < 0) {
       console.log("touchedWall left side");
       return true;
-    } else if (playerRect.top < 0) {
+    } else if (this.snakeHead.offsetTop < 0) {
       console.log("touched TOP side wall");
       return true;
-    } else if (playerRect.bottom > 600) {
-      console.log("touched bottom wall"); //pretty sure this is not wokring
+    } else if (
+      this.snakeHead.offsetTop >
+      gameScreen.clientHeight - this.height
+    ) {
+      console.log("touched bottom side wall");
       return true;
-    } else if (playerRect.right > 700) {
+    } else if (
+      this.snakeHead.offsetLeft >
+      gameScreen.clientWidth - this.width
+    ) {
       console.log("touched RIGHT wall ok"); //this too
+
       return true;
     }
     return false;
