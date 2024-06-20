@@ -28,7 +28,7 @@ Game starts, logs your score, makes you win with score 100, makes you loose when
 - Let the user lose three times prior to the real game over.
 - Add different foods that give more score points.
 - Introduce a hard level with faster speed and obstacles.
-- Introduce an easy level where the player can go through
+- Introduce an easy level where the player can go through Walls.
 - Allow the user to choose the snake color.
 - Create a log of local records.
 - Add sounds for various game events.
@@ -40,10 +40,10 @@ Game starts, logs your score, makes you win with score 100, makes you loose when
 - **Game Class**
 
   - Methods:
-    - `start()`: Initializes the game. Has an interval which calls the move method and makes the snake move one headspace at a time.
+    - `start()`: Initializes the game. Has an interval which calls the Player Class move method and makes the snake move one headspace at a time.
     - `addFood()`: Adds food to the game.
-    - `winFunction()`: Defines the win condition.
-    - `gameOverFunction()`: Defines the game over condition.
+    - `winFunction()`: Makes Win-Screen appear.
+    - `gameOverFunction()`: Makes Game-Over-Screen appear.
     - `reset()`: Resets the game state.
 
 - **Player Class**
