@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.querySelector("#start");
-  const restartBtn = document.querySelector("#restart-button");
+  const winRestartBtn = document.querySelector("#Win-Restart-Button");
+  const gameOverRestartBtn = document.querySelector(
+    "#Game-Over-Restart-button"
+  );
 
   let newGameInstance;
   function startGame() {
@@ -17,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
       height: 600,
       width: 700,
     };
-    newGameInstance = new Game(screens, gameArea);
 
+    newGameInstance = new Game(screens, gameArea);
     newGameInstance.start();
   }
 
@@ -26,9 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
     startGame();
   });
 
-  restartBtn.addEventListener("click", () => {
+  winRestartBtn.addEventListener("click", () => {
     startGame();
   });
+
+  gameOverRestartBtn.addEventListener("click", () => {
+    startGame();
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.code === "KeyA" || event.code === "ArrowLeft") {
       newGameInstance.player.directionX = -1;

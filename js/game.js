@@ -24,7 +24,6 @@ class Game {
     this.foods = [];
 
     this.currentFrame = 0;
-    this.lives = 5;
     this.score = 0;
     this.gameOver = false;
     this.win = false;
@@ -38,14 +37,12 @@ class Game {
 
     const foodItem = new Food(this.size, top, left);
 
-    console.log(foodItem);
-
     this.gameScreen.appendChild(foodItem.element);
 
     this.foods.push(foodItem);
   }
 
-  didWin() {
+  winFunction() {
     console.log("you won!");
     this.win = true;
     this.startScreen.style.display = "none";
@@ -54,7 +51,18 @@ class Game {
     this.endScreen.style.display = "none";
   }
 
+  reset() {
+    this.player.destroy();
+    this.foods.forEach((currentFood, index) => {
+      currentFood.destroy();
+      this.foods.splice(index, 1);
+      const score = document.querySelector("#score");
+      score.innerHTML = `Your Score = 0`;
+    });
+  }
   gameOverFunction() {
+    console.log("you lost!");
+
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
 
@@ -94,8 +102,6 @@ class Game {
           this.score = this.score + 20;
           score.innerHTML = `Your Score = ${this.score}`;
 
-          console.log(this.score);
-
           //make food dissapear (remove from array & dom)
           currentFood.destroy();
           this.foods.splice(index, 1);
@@ -108,18 +114,13 @@ class Game {
         }
       });
       if (this.score >= 100) {
-        this.didWin();
+        this.winFunction();
         this.gameOver = false;
+        this.reset();
       }
       if (this.gameOver) {
         this.gameOverFunction();
-        this.player.destroy();
-        this.foods.forEach((currentFood, index) => {
-          currentFood.destroy();
-          this.foods.splice(index, 1);
-          const score = document.querySelector("#score");
-          score.innerHTML = `Your Score = 0`;
-        });
+        this.reset();
       }
     }, 200);
   }

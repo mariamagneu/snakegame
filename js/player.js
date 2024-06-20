@@ -52,8 +52,6 @@ class Player {
       playerRect.bottom > foodRect.top
     ) {
       console.log("yummy");
-      console.log("snakehead when it touched food", playerRect);
-      console.log("food position", foodRect);
 
       return true;
     } else {
@@ -78,8 +76,7 @@ class Player {
       this.snakeHead.offsetLeft >
       gameScreen.clientWidth - this.width
     ) {
-      console.log("touched RIGHT wall ok"); //this too
-
+      console.log("touched RIGHT wall ok");
       return true;
     }
     return false;
