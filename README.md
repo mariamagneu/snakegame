@@ -59,7 +59,7 @@ Game starts, logs your score, makes you win with score 100, makes you loose when
   - Methods:
     - `destroy()`: Removes the food from the game.
 
-## States y States Transitions
+## States & States Transitions
 
 ![diagram of game flow](</images/Screenshot 2024-06-20 at 12.41.14.png>)
 
