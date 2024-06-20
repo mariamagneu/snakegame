@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       start: document.querySelector("#start-screen"),
       game: document.querySelector("#game-screen"),
       end: document.querySelector("#game-end"),
+      win: document.querySelector("#game-win"),
     };
 
     const gameArea = {

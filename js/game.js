@@ -3,6 +3,7 @@ class Game {
     this.startScreen = screens.start;
     this.gameScreen = screens.game;
     this.endScreen = screens.end;
+    this.winScreen = screens.win;
 
     this.width = gameArea.width;
     this.height = gameArea.height;
@@ -26,6 +27,7 @@ class Game {
     this.lives = 5;
     this.score = 0;
     this.gameOver = false;
+    this.win = false;
   }
 
   addFood() {
@@ -43,10 +45,13 @@ class Game {
     this.foods.push(foodItem);
   }
 
-  didWinCheck() {
-    if (this.score >= 100) {
-      console.log("you won!");
-    }
+  didWin() {
+    console.log("you won!");
+    this.win = true;
+    this.startScreen.style.display = "none";
+    this.winScreen.style.display = "flex";
+    this.gameScreen.style.display = "none";
+    this.endScreen.style.display = "none";
   }
 
   gameOverFunction() {
@@ -54,6 +59,7 @@ class Game {
     this.gameScreen.style.height = `${this.height}px`;
 
     this.startScreen.style.display = "none";
+    this.winScreen.style.display = "none";
     this.gameScreen.style.display = "none";
     this.endScreen.style.display = "flex";
   }
@@ -62,6 +68,7 @@ class Game {
     this.gameScreen.style.height = `${this.height}px`;
 
     this.startScreen.style.display = "none";
+    this.winScreen.style.display = "none";
     this.gameScreen.style.display = "flex";
     this.endScreen.style.display = "none";
 
@@ -100,6 +107,10 @@ class Game {
           this.addFood();
         }
       });
+      if (this.score >= 100) {
+        this.didWin();
+        this.gameOver = false;
+      }
       if (this.gameOver) {
         this.gameOverFunction();
         this.player.destroy();

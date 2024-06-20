@@ -33,6 +33,22 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+#game-win {
+  display: flex;
+  background-color: lightgoldenrodyellow;
+  background-position: center;
+  height: 600px;
+  width: 700px;
+  flex-direction: column;
+  display: none;
+  border-radius: 10px;
+  border: solid brown 2px;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
 #start-screen {
   background-image: url(images/snake-background-z1pwx91w43h1nabw.jpg);
   background-position: center;
