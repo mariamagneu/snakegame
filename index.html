@@ -8,9 +8,9 @@
   </head>
   <body>
     <div class="container">
-      <div id="score">Your Score = 0 </div>
+      <div id="score">Your Score = 0</div>
 
-      <section id="start-screen">
+      <div id="start-screen">
         <nav>
           <button id="record-log">local record-log</button>
           <div id="lives">live count</div>
@@ -27,16 +27,19 @@
             </div>
           </div>
         </div>
-      </section>
-      
-        <div id="game-screen"></div>
       </div>
-      <section id="game-end">
+
+      <div id="game-screen"></div>
+      <div id="game-win">
+        <h1>You won!</h1>
+      </div>
+
+      <div id="game-end">
         <img src="" alt="" class="logo-img" />
         <h1>Game Over</h1>
         <br />
         <button id="restart-button">Restart</button>
-      </section>
+      </div>
     </div>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/food.js"></script>

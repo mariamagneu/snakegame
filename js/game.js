@@ -19,6 +19,7 @@ class Game {
       this.size,
       "#89f336"
     );
+
     this.foods = [];
 
     this.currentFrame = 0;
@@ -42,20 +43,26 @@ class Game {
     this.foods.push(foodItem);
   }
 
+  didWinCheck() {
+    if (this.score >= 100) {
+      console.log("you won!");
+    }
+  }
+
   gameOverFunction() {
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
 
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "none";
-    this.endScreen.style.display = "block";
+    this.endScreen.style.display = "flex";
   }
   start() {
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
 
     this.startScreen.style.display = "none";
-    this.gameScreen.style.display = "block";
+    this.gameScreen.style.display = "flex";
     this.endScreen.style.display = "none";
 
     this.addFood();
