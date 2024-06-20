@@ -61,8 +61,6 @@ Game starts, logs your score, makes you win with score 100, makes you loose when
 
 ## States & States Transitions
 
-![diagram of game flow](</images/Screenshot 2024-06-20 at 12.41.14.png>)
-
 - **Start Screen**: Initial screen.
 - **Game Screen**: Active gameplay screen.
 - **Game Over Screen**: Screen displayed upon losing.
@@ -82,7 +80,5 @@ Game starts, logs your score, makes you win with score 100, makes you loose when
 
 ## Links
 
-- [Mermaid Chart Lnik](https://www.mermaidchart.com/raw/01f759d1-da28-46a7-90ea-766ba111eb79?theme=light&version=v0.1&format=svg)
-- [Slides Link](http://slides.com)
 - [Github repository Link](https://github.com/mariamagneu/snakegame)
 - [Deployment Link](mariamagneu.github.io/snakegame/)
