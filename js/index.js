@@ -55,4 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
       newGameInstance.player.directionX = 0; // Ensure only vertical movement
     }
   });
+
+  document.querySelectorAll(".coming-soon").forEach(function (element) {
+    let originalText = element.textContent;
+
+    element.addEventListener("mouseenter", function () {
+      element.textContent = "coming soon";
+    });
+
+    element.addEventListener("mouseleave", function () {
+      element.textContent = originalText;
+    });
+  });
 });
