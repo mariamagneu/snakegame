@@ -113,7 +113,7 @@ class Game {
           this.addFood();
         }
       });
-      if (this.score >= 2000) {
+      if (this.score >= 100) {
         this.winFunction();
         this.gameOver = false;
         this.reset();
@@ -122,6 +122,6 @@ class Game {
         this.gameOverFunction();
         this.reset();
       }
-    }, 200);
+    }, 100);
   }
 }
